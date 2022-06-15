@@ -74,6 +74,7 @@ Hints (Useful Resources):
         A psudeo code example can be seen below:
         ```
         if (item exists in todo list) {
+        const exists = this.state.todos.find(t => t.content === todo.content); if (exists){ return }
             do nothing and just return
             to break out the function
         } else {
