@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Todos from "../component/todos";
 import AddTodo from "../component/AddTodo";
+
 import "../pages/Home.css";
 
 class Home extends Component {
@@ -47,7 +48,7 @@ class Home extends Component {
         {/* When returning the Todos component, todos is a prop passed to the todos.js file
          to format and render the current todo list state */}
         <Todos todos={this.state.todos} />
-        <DeleteTodo deleteTodo={this.deleteTodo} />
+        <deleteTodo deleteTodo={this.deleteTodo} />
       </div>
     );
   }
