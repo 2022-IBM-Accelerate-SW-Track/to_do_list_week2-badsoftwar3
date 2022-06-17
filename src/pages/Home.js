@@ -20,13 +20,23 @@ class Home extends Component {
     // This solution works for a small application but a more complex hashing function should be used when
     // dealing with a larger data sensitive project.
     todo.id = Math.random();
+    const exists = this.state.todos.find(t => t.content === todo.content); if (exists){ return }
     // Create a array that contains the current array and the new todo item
     let new_list = [...this.state.todos, todo];
     // Update the local state with the new array.
+    
     this.setState({
       todos: new_list,
     });
   };
+  deleteTodo = (id) => {
+    const todos = this.state.todos.filter((todo) => {
+      return todo.id !== id;
+    });
+    this.setState({
+      todos: todos,
+    });
+};
   render() {
     return (
       <div className="Home">
@@ -37,6 +47,7 @@ class Home extends Component {
         {/* When returning the Todos component, todos is a prop passed to the todos.js file
          to format and render the current todo list state */}
         <Todos todos={this.state.todos} />
+        <DeleteTodo deleteTodo={this.deleteTodo} />
       </div>
     );
   }
